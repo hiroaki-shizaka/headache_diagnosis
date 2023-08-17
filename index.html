@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Google Form</title>
+</head>
+<body>
+    <!-- 以下のURLをあなたのGoogleフォームの埋め込みコードに置き換えてください -->
+    <iframe src="<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScuU-i-ooIS5e0bh4zWiDshsAnWrz0QIbpxZe62sUO0qYqEQg/viewform?embedded=true" width="640" height="1170" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>" width="700" height="520" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+    <script>
+        window.addEventListener('load', function() {
+            setInterval(function() {
+                var timestampInputs = document.querySelectorAll('input[name="タイムスタンプを記録"]');
+                var currentTime = new Date().toLocaleString();
+                timestampInputs.forEach(function(input) {
+                    input.value = currentTime;
+                });
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
