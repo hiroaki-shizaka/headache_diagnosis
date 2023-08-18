@@ -6,8 +6,9 @@
     <title>My Custom Google Form</title>
     <style>
         /* Googleフォームの「次へ」ボタンを非表示にする */
-        div.freebirdFormviewerViewNavigationNavControls > div.appsMaterialWizButtonEl {
-            display: none;
+    div.freebirdFormviewerViewNavigationNavControls > div.appsMaterialWizButtonPaperbuttonEl {
+        display: none;
+            
         }
     </style>
 </head>
@@ -17,12 +18,13 @@
     <button id="customNextButton">次へへ</button>
 
     <script>
-        document.getElementById("customNextButton").addEventListener("click", function() {
-            var nextButton = document.querySelector("div.freebirdFormviewerViewNavigationNavControls > div.appsMaterialWizButtonEl");
-            if (nextButton) {
-                nextButton.click();
-            }
-        });
+document.getElementById("customNextButton").addEventListener("click", function() {
+    var form = document.querySelector("iframe").contentWindow.document.querySelector("form");
+    if (form) {
+        form.submit();
+    }
+});
+
     </script>
 </body>
 </html>
