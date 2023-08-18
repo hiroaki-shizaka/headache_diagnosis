@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Google Form</title>
+    <title>My Custom Google Form</title>
+    <style>
+        /* Googleフォームの「次へ」ボタンを非表示にする */
+        div.freebirdFormviewerViewNavigationNavControls > div.appsMaterialWizButtonEl {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <!-- 以下のURLをあなたのGoogleフォームの埋め込みコードに置き換えてください -->
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScuU-i-ooIS5e0bh4zWiDshsAnWrz0QIbpxZe62sUO0qYqEQg/viewform?embedded=true" width="700" height="520" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
+    <button id="customNextButton">次へへ</button>
+
     <script>
-        window.addEventListener('load', function() {
-            setInterval(function() {
-                var timestampInputs = document.querySelectorAll('input[name="タイムスタンプを記録"]');
-                var currentTime = new Date().toLocaleString();
-                timestampInputs.forEach(function(input) {
-                    input.value = currentTime;
-                });
-            }, 1000);
+        document.getElementById("customNextButton").addEventListener("click", function() {
+            var nextButton = document.querySelector("div.freebirdFormviewerViewNavigationNavControls > div.appsMaterialWizButtonEl");
+            if (nextButton) {
+                nextButton.click();
+            }
         });
     </script>
 </body>
